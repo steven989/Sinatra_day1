@@ -40,10 +40,9 @@ class Rolodex
 ####################################### method to view all contacts
   def view_all_contacts
 
-
     @rolodex.each {|contact|
-      puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-      puts "--------------------------------"
+      @@contact_array << "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
+      @@contact_array << "--------------------------------"
     }
 
   end
