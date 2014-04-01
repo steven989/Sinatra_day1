@@ -41,3 +41,9 @@ get '/contacts/:id/edit' do
     erb :contact_modify
     
 end
+
+post '/contacts' do
+
+    puts params
+
+end
