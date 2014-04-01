@@ -1,1 +1,10 @@
 <h1>Here are all your contacts</h1>
+
+<ul>
+<% @contacts.each { |contact| %>
+    
+    <li><%= contact.first_name %> <%= contact.last_name %></li>
+
+<% } %>
+
+</ul>
