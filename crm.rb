@@ -45,8 +45,6 @@ end
 
 post '/contacts' do
 
-
-    # @@rolodex.add_contact(params[:first_name],params[:last_name],params[:email],params[:notes])
-    @@rolodex.add_contact("mars","rover","mars.rover@gmail.com","robot")
+    @@rolodex.add_contact(params[:first_name],params[:last_name],params[:email],params[:notes])
     redirect to('/contacts')
 end
