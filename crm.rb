@@ -8,3 +8,10 @@ get '/' do
     
 end
 
+get '/contacts' do
+
+    erb :contacts
+    
+end
+
+
