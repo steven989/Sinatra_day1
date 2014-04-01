@@ -1,22 +1,23 @@
 require 'sinatra'
 require_relative 'contact'
+require_relative 'rolodex'
 
 get '/' do
 
     @crm_app_name = "My CRM"
     @current_time = Time.now
+    @@rolodex = Rolodex.new
     erb :index
     
 end
 
 get '/contacts' do
 
-    @contacts = []
+    @@contacts = []
 
-    @contacts << Contact.new("Julie", "Hache", "julie@bitmakerlabs.com", "Instructor")
-    @contacts << Contact.new("Will", "Richman", "will@bitmakerlabs.com", "Co-Founder")
-    @contacts << Contact.new("Chris", "Johnston", "chris@bitmakerlabs.com", "Instructor")
-
+    @@contacts << Contact.new("Julie", "Hache", "julie@bitmakerlabs.com", "Instructor")
+    @@contacts << Contact.new("Will", "Richman", "will@bitmakerlabs.com", "Co-Founder")
+    @@contacts << Contact.new("Chris", "Johnston", "chris@bitmakerlabs.com", "Instructor")
 
     erb :contacts
     
@@ -44,6 +45,8 @@ end
 
 post '/contacts' do
 
-    puts params
 
+    # @@rolodex.add_contact(params[:first_name],params[:last_name],params[:email],params[:notes])
+    @@rolodex.add_contact("mars","rover","mars.rover@gmail.com","robot")
+    redirect to('/contacts')
 end
