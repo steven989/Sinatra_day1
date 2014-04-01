@@ -14,4 +14,21 @@ get '/contacts' do
     
 end
 
+get '/contacts/new' do
 
+    erb :contact_new
+    
+end
+
+
+get '/contacts/:id' do
+
+    erb :contact_view_one
+    
+end
+
+get '/contacts/:id/edit' do
+
+    erb :contact_modify
+    
+end
