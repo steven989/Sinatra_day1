@@ -1,0 +1,260 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* Styling */
+
+body {
+
+    background: url(/background_fotor.jpg) no-repeat center fixed ;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+.header {
+
+    padding-left:20px;
+    padding-top:30px;
+    border-bottom: 5px solid white;
+    top: 0px;
+    height: 80px;
+    width:100%;
+    /*background-color: rgba(87, 100, 134, 0.6);*/
+    color: white;
+
+}
+
+.header h1 {
+
+    font-size: 3rem;
+
+}
+
+
+.header-background {
+
+    background: url(/arab_tile.png);
+    opacity: 0.75;
+    position:absolute;
+    padding-left:20px;
+    padding-top:30px;
+    border-bottom: 5px solid white;
+    top: 0px;
+    height: 80px;
+    width:100%;
+    z-index: -1;
+
+}
+
+.body {
+
+    min-height: 520px;
+    width: 100%;
+
+}
+
+#buttons {
+
+    position: absolute;
+    top: 230px;
+    width:100%;
+
+}
+
+
+#buttons #button {
+
+    padding-top: 90px;
+    padding-left: 50px;
+    display: inline-block;
+    border: 5px solid white;
+    border-radius: 10%;
+    width:225px;
+    height: 185px;
+    margin-left: 1.8%;
+    margin-right: auto;
+    background-color: rgba(250,250,250,0.25);
+    color: white;
+    text-decoration: none;
+    font-size: 3em;
+    text-align: left;
+
+}
+
+#buttons a {
+
+    text-decoration:none;
+    color:white;
+
+}
+
+#buttons #button:hover {
+
+    background-color: rgba(87, 100, 134, 0.6);
+
+}
+
+.footer {
+
+    float:left;
+    border-top: 2px white solid;
+    bottom: 0px;
+    height: 50px;
+    width:100%;
+    /*background-color: rgba(87, 100, 134, 0.6);*/
+    color: white;
+    padding-top:10px;
+    z-index:1;
+
+}
+
+.footer-background {
+
+    position:static;
+    border-top: 2px white solid;
+    bottom: 0px;
+    height: 50px;
+    width:100%;
+    background: url(arab_tile.png);
+    opacity: 0.4;
+    color: white;
+    padding-top:10px;
+    z-index: -1;
+
+
+}
+
+/* Add contact page*/
+
+#add_form {
+
+    position: absolute;
+    top: 230px;
+    width:600px;
+    height:300px;
+    border: 5px solid white;
+    border-radius: 30px;
+    background-color: rgba(148, 148, 148, 0.8);
+    margin-left: 25%;
+    padding-top: 15px;
+    padding-left: 20px;
+
+}
+
+#add_form h1 {
+
+    color: white;
+    font-size: 2.5rem;
+
+}
+
+#add_form table {
+
+    top:25%;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    width:60%;
+    height:50%;
+    left: 20%;
+
+}
+
+#add_form input {
+
+    width: 100%;
+    border: 3px solid white;
+
+}
+
+#add_form #submit_button {
+
+    position: absolute;
+    bottom: 10%;
+    width: 60%;
+    height: 10%;
+    left: 20%;
+
+}
+
+/*Table to view all contacts*/
+
+#contacts {
+
+    position: static;
+    margin-top: 130px;
+    margin-bottom:130px;
+    width:65%;
+    min-height: 300px;
+    border: 5px solid white;
+    border-radius: 30px;
+    background-color: rgba(148, 148, 148, 0.8);
+    margin-left: 16%;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+
+}
+
+#contacts h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#contacts #contacts_table {
+
+
+    width: 97%;
+
+
+}
+
+#contacts #contacts_table td {
+
+    border: 1px dashed white;
+    padding-top: 10px;
+    padding-bottom:10px;
+
+}

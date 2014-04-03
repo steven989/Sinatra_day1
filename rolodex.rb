@@ -42,7 +42,6 @@ class Rolodex
 
     @rolodex.each {|contact|
       @@contact_array << "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-      @@contact_array << "--------------------------------"
     }
 
   end

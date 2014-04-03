@@ -1,9 +1,64 @@
-<h1>Add a contact below</h1>
+<div class="header">
+
+    <h1>Welcome to <%= @crm_app_name %>!</h1>
+    
+
+</div>
+<div class="header-background">
+
+
+
+</div>
+
+
+<div class="body">
+
+<div id="add_form">
+
+<h1>Add a contact below:</h1>
 
 <form action="/contacts" method = "post">
-    <input type="text" name = "first_name">
-    <input type="text" name = "last_name">
-    <input type="text" name = "email">
-    <input type="text" name = "notes">
-    <input type="submit" name = "Submit">
+
+    <table>
+
+        <tr>
+            <td>First Name: </td>
+            <td><input type="text" name = "first_name"></td>
+        </tr>
+
+        <tr>
+        <td>Last Name:</td>
+        <td><input type="text" name = "last_name"></td>
+
+        </tr>
+
+        <tr>
+        <td>Email: </td>
+        <td><input type="text" name = "email"></td>
+        </tr>
+
+        <tr>
+        <td>Notes: </td>
+        <td><input type="text" name = "notes"></td>
+        </tr>
+    </table>
+        <input type="submit" name = "Click to submit" id="submit_button">
+
+
 </form>
+
+
+</div>
+
+</div>
+
+
+
+<div class="footer">
+
+<h2>It is <%= @current_time %> right now.</h2>
+</div>
+
+<div class="footer-background">
+</div>
+

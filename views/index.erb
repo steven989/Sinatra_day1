@@ -1,9 +1,35 @@
-<h1>Welcome to <%= @crm_app_name %>!</h1>
+<div class="header">
+
+    <h1>Welcome to <%= @crm_app_name %>!</h1>
+    
+
+</div>
+<div class="header-background">
+
+
+
+</div>
+
+<div class="body">
+
+<div id="buttons">
+
+    <ul>
+        <a href="/contacts"><li id="button">View all contacts</li></a>
+        <a href="/contacts/new"><li id="button">Add a contact</li></a>
+        <a href="/contacts/:id"><li id="button">View a contact</li></a>
+        <a href="/contacts/:id/edit"><li id="button">Modify a contact</li></a>
+    </ul>
+
+</div>
+
+</div>
+
+<div class="footer">
+
 <h2>It is <%= @current_time %> right now.</h2>
-<p>Main menu</p>
-<ul>
-    <li><a href="/contacts">View all contacts</a></li>
-    <li><a href="/contacts/new">Add a contact</a></li>
-    <li><a href="/contacts/:id">View a contact</a></li>
-    <li><a href="/contacts/:id/edit">Modify a contact</a></li>
-</ul>
+</div>
+
+<div class="footer-background">
+</div>
+

@@ -1,10 +1,36 @@
-<h1>Here are all your contacts</h1>
 
-<p>
-<% @@contact_array.each { |contact| %>
+<div class="header">
+
+    <h1>Welcome to <%= @crm_app_name %>!</h1>
     
-    <%= contact %>
 
-<% } %>
+</div>
+<div class="header-background">
 
-</p>
+
+
+</div>
+
+<div class="body">
+
+    <div id="contacts">
+    
+        <h1>Here are all your contacts:</h1> 
+        <% puts @@contact_array %>
+        <table id="contacts_table">
+        <% @@contact_array.each { |contact| %>
+           <tr> <td><%= contact %> </td></tr>
+        <% } %>
+
+        </table>
+    </div>
+
+</div>
+
+<div class="footer">
+
+<h2>It is <%= @current_time %> right now.</h2>
+</div>
+
+<div class="footer-background">
+</div>
