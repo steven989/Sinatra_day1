@@ -1,7 +1,7 @@
 
 <div class="header">
 
-    <h1>Welcome to <%= @crm_app_name %>!</h1>
+    <h1>Welcome to <%= @@crm_app_name %>!</h1>
     
 
 </div>
@@ -16,10 +16,26 @@
     <div id="contacts">
     
         <h1>Here are all your contacts:</h1> 
-        <% puts @@contact_array %>
-        <table id="contacts_table">
         <% @@contact_array.each { |contact| %>
-           <tr> <td><%= contact %> </td></tr>
+            <div class="individual_contact">
+                <% id = contact.id %>
+                <% name = contact.first_name+" "+contact.last_name %>
+                <% email =contact.email %>
+                <% notes = contact.notes %>
+                <h1><%= name %></h1> <br>
+                <p><%= email %> </p> <br>
+                <p><%= notes %> </p>
+            <div class="modify">
+                <form action="/contacts/:<%= id %>/edit" method="GET">
+                    <input type="submit" name="submit" class="modify_delete" value="Modify contact">
+                </form>
+            </div>
+            <div class="delete">
+                <form action="/contacts/:<%= id %>/delete" method="GET">
+                    <input type="submit" name="submit" class="modify_delete" value="Delete contact">
+                </form>
+            </div>
+            </div> 
         <% } %>
 
         </table>
@@ -29,7 +45,7 @@
 
 <div class="footer">
 
-<h2>It is <%= @current_time %> right now.</h2>
+<h2>It is <%= @@current_time %> right now.</h2>
 </div>
 
 <div class="footer-background">

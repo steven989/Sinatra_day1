@@ -12,6 +12,7 @@ class Rolodex
   def add_contact(first_name,last_name,email,notes)
 
     contact = Contact.new(first_name,last_name,email,notes)
+    puts "Check point 0"
     @rolodex << contact
   end
 
@@ -41,8 +42,12 @@ class Rolodex
   def view_all_contacts
 
     @rolodex.each {|contact|
-      @@contact_array << "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
+      @@contact_array << contact
     }
+
+    puts "Check point 0.5--------------------------------"
+    puts @rolodex.inspect
+    puts "--------------------------------"
 
   end
 

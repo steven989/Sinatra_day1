@@ -1,6 +1,6 @@
 <div class="header">
 
-    <h1>Welcome to <%= @crm_app_name %>!</h1>
+    <h1>Welcome to <%= @@crm_app_name %>!</h1>
     
 
 </div>
@@ -42,7 +42,7 @@
         <td><input type="text" name = "notes"></td>
         </tr>
     </table>
-        <input type="submit" name = "Click to submit" id="submit_button">
+        <input type="submit" name = "submit" id="submit_button" value="Create new contact">
 
 
 </form>
@@ -56,7 +56,7 @@
 
 <div class="footer">
 
-<h2>It is <%= @current_time %> right now.</h2>
+<h2>It is <%= @@current_time %> right now.</h2>
 </div>
 
 <div class="footer-background">
