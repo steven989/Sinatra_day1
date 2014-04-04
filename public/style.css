@@ -44,6 +44,7 @@ table {
 }
 
 
+
 /* Styling */
 
 body {
@@ -51,6 +52,7 @@ body {
     background: url(/background_fotor.jpg) no-repeat center fixed ;
     font-family: 'Tenor Sans', sans-serif;
 }
+
 
 .header {
 
@@ -65,11 +67,26 @@ body {
 
 }
 
-.header h1 {
+.header > h1 {
 
-    font-size: 3rem;
+    font-size: 2rem;
 
 }
+
+.home_button {
+
+    position: absolute;
+    right:5rem;
+    top: 2rem;
+    display: inline-block;
+    background-color: none;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
 
 
 .header-background {
@@ -165,7 +182,7 @@ body {
 
 }
 
-/* Add contact page*/
+/* ------------------------------------------- Add contact page -------------- */
 
 #add_form {
 
@@ -221,7 +238,7 @@ body {
 
 }
 
-/*Table to view all contacts*/
+/* --------------------------------- Page to view all contacts ---------------- */
 
 #contacts {
 
@@ -241,6 +258,7 @@ body {
 }
 
 #contacts .individual_contact {
+    position: relative;
     padding-top: 1.5rem;
     display: inline-block;
     border: 5px solid white;
@@ -256,6 +274,26 @@ body {
     text-align: center;
 }
 
+#contacts .individual_contact:hover {
+
+    background-color: rgba(87, 100, 134, 0.6);
+
+
+}
+
+#contacts #add_button {
+
+    border:none;
+    background: url(/plus.png) center no-repeat;
+    background-size: 75%;
+}
+
+#contacts #add_button:hover {
+
+background-color: rgba(87, 100, 134, 0.6);
+
+}
+
 #contacts h1 {
 
     font-size: 2rem;
@@ -268,5 +306,110 @@ body {
 
 }
 
+/* Submit buttons formatting */
+
+#contacts .modify {
+
+    display: inline-block;
+    position: absolute;
+    background: white;
+    bottom: 1.5rem;
+    left: 0rem;
+    height: 1.75rem;
+    width: 50%;
+    background-color: rgba(250,250,250,0.3);
+
+}
+
+#contacts .modify:hover {
+
+    background-color: rgba(250,250,250,0.7);
+
+}
+
+#contacts .delete {
+
+    display: inline-block;
+    position: absolute;
+    background: white;
+    bottom: 1.5rem;
+    right: 0rem;
+    height: 1.75rem;
+    width: 50%;
+    background-color: rgba(250,250,250,0.3);
+
+}
+
+#contacts .delete:hover {
+
+    background-color: rgba(250,250,250,0.7);
+
+}
+
+#contacts input[type="submit"] {
+
+    border: none;
+    background-color: rgba(250,250,250,0);
+    color: white;
+    font-size: 1rem;
+}
 
 
+
+/*------------------------------- Page to edit contact information ------- */
+
+
+
+#modify_screen {
+
+    position: absolute;
+    top: 180px;
+    width:600px;
+    height:300px;
+    border: 5px solid white;
+    border-radius: 30px;
+    background-color: rgba(148, 148, 148, 0.9);
+    margin-left: 25%;
+    padding-top: 15px;
+    padding-left: 20px;
+    z-index: 1;
+}
+
+#modify_screen h1 {
+
+    color: white;
+    font-size: 2.5rem;
+
+}
+
+#modify_screen table {
+
+    top:25%;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    width:60%;
+    height:50%;
+    left: 20%;
+
+}
+
+#modify_screen input {
+
+    width: 100%;
+    border: 3px solid white;
+
+}
+
+#modify_screen #submit_button {
+
+    position: absolute;
+    bottom: 10%;
+    width: 60%;
+    height: 10%;
+    left: 20%;
+    color: white;
+    border: none;
+    font-size: 1rem;
+
+}

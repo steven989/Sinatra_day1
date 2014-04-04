@@ -1,1 +1,71 @@
-<h1>Enter an ID to view any contact</h1>
+<div class="header">
+
+    <h1>Welcome to <%= @@crm_app_name %>!</h1>
+    
+    <a href="/">
+    <div class="home_button">
+    <h1>Home</h1>
+    </div>
+</a>
+
+</div>
+<div class="header-background">
+
+
+
+
+</div>
+
+
+<div class="body">
+
+
+<div id="add_form">
+
+<h1>Search below:</h1>
+
+<form action="/contacts/find_all" method = "post">
+
+    <table>
+
+        <tr>
+            <td>First Name: </td>
+            <td><input type="text" name = "first_name"></td>
+        </tr>
+
+        <tr>
+        <td>Last Name:</td>
+        <td><input type="text" name = "last_name"></td>
+
+        </tr>
+
+        <tr>
+        <td>Email: </td>
+        <td><input type="text" name = "email"></td>
+        </tr>
+
+        <tr>
+        <td>Notes: </td>
+        <td><input type="text" name = "notes"></td>
+        </tr>
+
+    </table>
+        <input type="submit" name = "submit" id="submit_button" value="Find contacts">
+
+
+</form>
+
+
+</div>
+
+</div>
+
+
+
+<div class="footer">
+
+<h2>It is <%= @@current_time %> right now.</h2>
+</div>
+
+<div class="footer-background">
+</div>

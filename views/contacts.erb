@@ -2,7 +2,12 @@
 <div class="header">
 
     <h1>Welcome to <%= @@crm_app_name %>!</h1>
-    
+        
+    <a href="/">
+    <div class="home_button">
+    <h1>Home</h1>
+    </div>
+    </a>
 
 </div>
 <div class="header-background">
@@ -12,6 +17,8 @@
 </div>
 
 <div class="body">
+
+
 
     <div id="contacts">
     
@@ -25,20 +32,33 @@
                 <h1><%= name %></h1> <br>
                 <p><%= email %> </p> <br>
                 <p><%= notes %> </p>
-            <div class="modify">
-                <form action="/contacts/:<%= id %>/edit" method="GET">
-                    <input type="submit" name="submit" class="modify_delete" value="Modify contact">
-                </form>
-            </div>
-            <div class="delete">
-                <form action="/contacts/:<%= id %>/delete" method="GET">
-                    <input type="submit" name="submit" class="modify_delete" value="Delete contact">
-                </form>
-            </div>
+                <label for="<%= id %>_modify">
+                    <div class="modify">
+                        <form action="/contacts/<%= id %>/edit" method="GET">
+                            <input type="submit" name="submit" class="modify_delete" value="Modify" id = "<%= id %>_modify">
+                        </form>
+                    </div>
+                </label>
+                <label for="<%= id %>_delete">
+                    <div class="delete">
+                        <form action="/contacts/<%= id %>/delete" method="GET">
+                            <input type="submit" name="submit" class="modify_delete" value="Delete" id = "<%= id %>_delete">
+                        </form>
+                    </div>
+                <label>
             </div> 
         <% } %>
+             
+           <a href="/contacts/new"><div class="individual_contact" id="add_button">
+                    <p></p> <br>
+                    <p></p><br>
+                    <p></p><br>
+                    <p></p><br>
+                    <p></p><br>
+                    <p></p><br>
+            </div></a>
 
-        </table>
+        
     </div>
 
 </div>

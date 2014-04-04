@@ -1,1 +1,86 @@
-<h1>Enter an ID to modify any contact</h1>
+
+<div class="header">
+
+    <h1>Welcome to <%= @@crm_app_name %>!</h1>
+    
+
+<a href="/">
+<div class="home_button">
+    <h1>Home</h1>
+</div>
+</a>
+
+</div>
+<div class="header-background">
+
+
+
+</div>
+
+<div class="body">
+
+
+    <div id="modify_screen">
+
+
+        <h1>Modify the contact below:</h1>
+
+        <form action="/contacts/<%= @id %>/edit" method = "post">
+
+            <table>
+
+                <tr>
+                    <td>First Name: </td>
+                    <td><input type="text" name = "first_name" value = "<%= @@first_name_formdefault %>"></td>
+                </tr>
+
+                <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name = "last_name" value = "<%= @@last_name_formdefault %>"></td>
+
+                </tr>
+
+                <tr>
+                <td>Email: </td>
+                <td><input type="text" name = "email" value="<%= @@email_formdefault %>"></td>
+                </tr>
+
+                <tr>
+                <td>Notes: </td>
+                <td><input type="text" name = "notes" value = "<%= @@notes_formdefault %>"></td>
+                </tr>
+            </table>
+                <input type="submit" name = "submit" id="submit_button" value="Modify contact">
+
+
+        </form>
+
+    </div>
+
+    <div id="contacts">
+    
+        <h1>Here are all your contacts:</h1> 
+        <% @@contact_array.each { |contact| %>
+            <div class="individual_contact">
+                <% id = contact.id %>
+                <% name = contact.first_name+" "+contact.last_name %>
+                <% email =contact.email %>
+                <% notes = contact.notes %>
+                <h1><%= name %></h1> <br>
+                <p><%= email %> </p> <br>
+                <p><%= notes %> </p>
+            </div> 
+        <% } %>
+
+        
+    </div>
+
+</div>
+
+<div class="footer">
+
+<h2>It is <%= @@current_time %> right now.</h2>
+</div>
+
+<div class="footer-background">
+</div>

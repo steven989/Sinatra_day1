@@ -6,6 +6,10 @@ class Rolodex
 
     @rolodex = []
 
+    @rolodex << Contact.new("Steve","Long","steven989@gmail.com","He is a pretty rad guy.") #default value
+    @rolodex << Contact.new("Mike","Smith","michael.smith@universe.com","Met him a few days ago.") #default value
+    @rolodex << Contact.new("Joey","Ionian","j.ionian@college.ca","He came to me") #default value
+    @rolodex << Contact.new("Sandra","Stevenson","sandra.stevenson@web.ca","She is also awesome") #default value
   end
 
 ####################################### method to add a contact
@@ -17,21 +21,19 @@ class Rolodex
   end
 
 ####################################### method to modify a contact
-  def modify_contact(id,attribute,value)
+  def modify_contact(id,first_name,last_name,email,notes)
 
     @rolodex.each{ |contact|
 
       if contact.id == id
         
-        if attribute.downcase == "first name"
-          contact.first_name = value
-        elsif attribute.downcase == "last name"
-          contact.last_name = value
-        elsif attribute.downcase == "email"
-          contact.email = value
-        elsif attribute.downcase == "notes"
-          contact.notes = value
-        end
+          contact.first_name = first_name
+
+          contact.last_name = last_name
+
+          contact.email = email
+        
+          contact.notes = notes
 
       end
 
@@ -45,9 +47,6 @@ class Rolodex
       @@contact_array << contact
     }
 
-    puts "Check point 0.5--------------------------------"
-    puts @rolodex.inspect
-    puts "--------------------------------"
 
   end
 
@@ -58,61 +57,28 @@ class Rolodex
 
       if contact.id == id
 
-      puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-      puts "--------------------------------"
+        @@first_name_formdefault = contact.first_name
+        @@last_name_formdefault = contact.last_name
+        @@email_formdefault = contact.email
+        @@notes_formdefault = contact.notes
+
       end
     }
   end
 
 ####################################### method to view all contacts by attribute value
-  def view_all_by_attr_value(attribute,value)
+  def view_all_by_attr_value(first_name,last_name,email,notes)
 
-      if attribute.downcase == "first name"
 
         @rolodex.each {|contact|
 
-          if contact.first_name.downcase.include? (value.downcase)
-          puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-          puts "--------------------------------"
+          if contact.first_name.downcase.include? (first_name.downcase) or contact.last_name.downcase.include? (last_name.downcase) or contact.email.downcase.include? (email.downcase) or contact.notes.downcase.include? (notes.downcase)
+            @@filtered_array << contact
+
           end
 
         }
       
-      elsif attribute.downcase == "last name"
-
-        @rolodex.each {|contact|
-
-          if contact.last_name.downcase.include? (value.downcase)
-          puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-          puts "--------------------------------"
-          end
-
-        }
-
-      elsif attribute.downcase == "email"
-
-        @rolodex.each {|contact|
-
-          if contact.email.downcase.include? (value.downcase)
-          puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-          puts "--------------------------------"
-          end
-
-        }
-
-      elsif attribute.downcase == "notes"
-
-        @rolodex.each {|contact|
-
-          if contact.notes.downcase.include? (value.downcase)
-          puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.notes}"
-          puts "--------------------------------"
-          end
-
-        }
-
-      end
-
 
   end
 
@@ -236,9 +202,6 @@ class Rolodex
 
     @rolodex = []
 
-    puts "The contacts have been cleared!"
-
-    sleep(0.2)
 
   end
 
