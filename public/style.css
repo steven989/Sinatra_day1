@@ -46,7 +46,9 @@ table {
 
 
 /* Styling */
-
+html {
+    font-size: 16px;
+}
 body {
 
     background: url(/background_fotor.jpg) no-repeat center fixed ;
@@ -58,19 +60,43 @@ body {
 
     padding-left:20px;
     padding-top:30px;
-    border-bottom: 2px solid white;
+    border-bottom: 5px solid white;
     top: 0px;
     height: 80px;
     width:100%;
-    background-color: rgba(166, 156, 148, 0.4);
+    background-color: rgba(61, 55, 51, .2);
     color: white;
 
 }
 
 .header > h1 {
 
+    position:absolute;
+    top: 2rem;
     font-size: 2rem;
+    font-weight: bold;
 
+}
+
+.header > p {
+
+    position:absolute;
+    top: 4.5rem;
+    font-size: 1.25rem;
+    left: 1.5rem;
+
+}
+
+.header span {
+
+    display: inline-block;
+    min-height: 1rem;
+    min-width: 1.5rem;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .home_button {
@@ -80,73 +106,78 @@ body {
     top: 2rem;
     display: inline-block;
     background-color: none;
-    color: white;
-    text-decoration: none;
+    border-radius: 0.5rem;
     font-size: 1.5rem;
     text-align: center;
+    padding-top: 1rem;
+    height: 2.5rem;
+    width: 5rem;
 
 }
 
+.home_button a {
 
-
-.header-background {
-
-    /*background: url(/arab_tile.png);*/
-    opacity: 0.75;
-    position:absolute;
-    padding-left:20px;
-    padding-top:30px;
-    border-bottom: 2px solid white;
-    top: 0px;
-    height: 80px;
-    width:100%;
-    z-index: -1;
+    color: white;
+    text-decoration: none;
 
 }
+
+.home_button:hover {
+
+    background-color: rgba(250,250,250,0.3);
+
+}
+
 
 .body {
 
+    position:relative;
+    box-sizing: border-box;
     min-height: 520px;
     width: 100%;
 
 }
 
-#buttons {
+#actions {
 
-    position: absolute;
-    top: 230px;
+    box-sizing: border-box;
+    padding-top: 80px;
     width:100%;
-
 }
 
 
-#buttons #button {
+.button {
 
+    /*position: relative;
+    top: 0px;*/
     padding-top: 4rem;
+    float: left;
+    border: 5px solid white;
+    box-sizing:border-box;
     display: inline-block;
-    border: 2px solid;
-    border-color: rbga(247,240,237,1);
-    border-radius: 10%;
-    width: 13rem;
-    height: 8rem;
-    margin-left: 6.4%;
-    margin-right: auto;
-    background-color: rgba(166, 156, 148,0.6);
-    color: rbga(247,240,237,1);
+    width: 15rem;
+    height: 15rem;
     text-decoration: none;
-    font-size: 2em;
-    text-align: center;
+    font-size: 3rem;
+
+    border-color: rbga(61, 55, 51, .2);
+    border-radius: 10%;
+
+    margin-left: 5%;
+    color: rbga(247,240,237,1);
+
+    /*text-align: center;*/
 
 }
 
-#buttons a {
+#actions a {
 
     text-decoration:none;
     color:white;
 
 }
 
-#buttons #button:hover {
+.button:hover {
 
     background-color: rgba(64, 54, 53, 0.6);
 
@@ -154,31 +185,16 @@ body {
 
 .footer {
 
+
     float:left;
-    border-top: 2px white solid;
+    border-top: 5px white solid;
     bottom: 0px;
     height: 50px;
     width:100%;
-    background-color: rgba(166, 156, 158, 0.4);
+    background-color: rgba(61, 55, 51, .2);
     color: white;
     padding-top:10px;
     z-index:1;
-
-}
-
-.footer-background {
-
-    position:static;
-    border-top: 2px white solid;
-    bottom: 0px;
-    height: 50px;
-    width:100%;
-    /*background: url(arab_tile.png);*/
-    opacity: 0.4;
-    color: white;
-    padding-top:10px;
-    z-index: -1;
-
 
 }
 
@@ -186,13 +202,13 @@ body {
 
 #add_form {
 
-    position: absolute;
+    position: fixed;
     top: 180px;
     width:600px;
     height:300px;
-    border: 2px solid white;
+    border: 5px solid white;
     border-radius: 30px;
-    background-color: rgba(148, 148, 148, 0.8);
+    background-color: rgba(61, 55, 51, .9);
     margin-left: 25%;
     padding-top: 15px;
     padding-left: 20px;
@@ -219,11 +235,27 @@ body {
 
 }
 
+
 #add_form input {
 
     width: 100%;
     border: 3px solid white;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: rgba(61, 55, 51, 1);
+    margin-left: 5%;
 
+}
+
+
+#add_form textarea {
+
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: rgba(61, 55, 51, 1);
+    margin-left: 5%;
 }
 
 #add_form #submit_button {
@@ -239,18 +271,21 @@ body {
 
 }
 
+#add_form #submit_button:hover {
+
+    background-color: rgba(250,250,250,0.8);
+
+}
+
 /* --------------------------------- Page to view all contacts ---------------- */
 
 #contacts {
 
-    position: static;
+    position: relative;
     margin-top: 0px;
-    width:80%;
+    width:90%;
     min-height: 300px;
-    /*border: 5px solid white;*/
-    /*border-radius: 30px;*/
-    /*background-color: rgba(148, 148, 148, 0.8);*/
-    margin-left: 15%;
+    margin-left: 5%;
     padding-top: 30px;
     padding-left: 20px;
     padding-bottom: 30px;
@@ -261,18 +296,20 @@ body {
 #contacts .individual_contact {
     position: relative;
     padding-top: 1.5rem;
-    display: inline-block;
-    border: 2px solid white;
-    border-radius: 10%;
-    width: 15rem;
+    float: left;
+    border: 5px solid white;
+    border-radius: 2rem;
+    width: 20rem;
     height: 12rem;
-    margin-top: 3%;
+    margin-top: 0%;
+    margin-bottom: 3%;
     margin-left: 1.8%;
     /*margin-bottom: 1.8%;*/
-    background-color: rgba(166, 156, 158,0.5);
+    background-color: rgba(61, 55, 51, .2);
     color: white;
     text-decoration: none;
     text-align: center;
+    text-overflow: ellipsis;
 }
 
 #contacts .individual_contact:hover {
@@ -285,17 +322,26 @@ body {
 #contacts #add_button {
 
     border:none;
+    border: 5px solid;
+    border-color: rgba(87, 100, 134, 0);
     background: url(/plus.png) center no-repeat;
-    background-size: 75%;
+    background-size: 60%;
 }
 
 #contacts #add_button:hover {
 
-background-color: rgba(87, 100, 134, 0.6);
+
+background-color: rgba(250,250,250,0.3);
 
 }
 
-#contacts h1 {
+#contacts > h1 {
+
+    font-size: 2rem;
+    margin-bottom: 3%;
+}
+
+#contacts .individual_contact h1 {  /* name in each car*/
 
     font-size: 2rem;
 
@@ -307,10 +353,33 @@ background-color: rgba(87, 100, 134, 0.6);
 
 }
 
+#contacts .contact_notes {
+
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 0.5rem;
+    margin-right:0.5rem;
+}
+
+#contacts .created_modified p {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0px;
+    font-size: 0.8rem;
+    font-style: italic;
+
+}
+
+
+
 /* Submit buttons formatting */
 
 #contacts .modify {
 
+    opacity: 0;
     display: inline-block;
     position: absolute;
     background: white;
@@ -322,6 +391,12 @@ background-color: rgba(87, 100, 134, 0.6);
 
 }
 
+#contacts .individual_contact:hover .modify {
+
+    opacity: 1;
+
+}
+
 #contacts .modify:hover {
 
     background-color: rgba(250,250,250,0.7);
@@ -330,6 +405,7 @@ background-color: rgba(87, 100, 134, 0.6);
 
 #contacts .delete {
 
+    opacity: 0;
     display: inline-block;
     position: absolute;
     background: white;
@@ -344,6 +420,12 @@ background-color: rgba(87, 100, 134, 0.6);
 #contacts .delete:hover {
 
     background-color: rgba(250,250,250,0.7);
+
+}
+
+#contacts .individual_contact:hover .delete {
+
+    opacity: 1;
 
 }
 
@@ -363,13 +445,13 @@ background-color: rgba(87, 100, 134, 0.6);
 
 #modify_screen {
 
-    position: absolute;
+    position: fixed;
     top: 180px;
     width:600px;
     height:300px;
-    border: 2px solid white;
+    border: 5px solid white;
     border-radius: 30px;
-    background-color: rgba(148, 148, 148, 0.9);
+    background-color: rgba(61, 55, 51, .9);
     margin-left: 25%;
     padding-top: 15px;
     padding-left: 20px;
@@ -399,6 +481,9 @@ background-color: rgba(87, 100, 134, 0.6);
 
     width: 100%;
     border: 3px solid white;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: rgba(61, 55, 51, 1);
 
 }
 
@@ -412,5 +497,80 @@ background-color: rgba(87, 100, 134, 0.6);
     color: white;
     border: none;
     font-size: 1rem;
+
+}
+
+#modify_screen #submit_button:hover {
+
+    background-color: rgba(250,250,250,0.8);
+
+}
+
+/*------------------------------- Search form  ------- */
+
+#search_form {
+
+    position: fixed;
+    top: 180px;
+    width:600px;
+    height:300px;
+    border: 5px solid white;
+    border-radius: 30px;
+    background-color: rgba(61, 55, 51, .9);
+    margin-left: 25%;
+    padding-top: 15px;
+    padding-left: 20px;
+
+}
+
+
+
+#search_form h1 {
+
+    color: white;
+    font-size: 2.5rem;
+
+}
+
+#search_form table {
+
+    top:25%;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    width:60%;
+    height:50%;
+    left: 20%;
+    top: 35%;
+
+}
+
+#search_form input {
+
+    width: 100%;
+    height:30%;
+    border-radius: 10px;
+    border: 3px solid white;
+    font-size: 1.5rem;
+
+
+}
+
+#search_form #submit_button {
+
+    position: absolute;
+    bottom: 10%;
+    width: 60%;
+    height: 10%;
+    left: 20%;
+    color: white;
+    border: none;
+    font-size: 1rem;
+
+}
+
+#search_form #submit_button:hover {
+
+    background-color: rgba(250,250,250,0.8);
 
 }

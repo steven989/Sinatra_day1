@@ -14,6 +14,8 @@ class Contact
     property :last_name, String
     property :email, String
     property :notes, String
+    property :create_date, Date
+    property :modify_date, Date
 
 
                               # attr_accessor :first_name, :last_name, :email, :notes, :id
@@ -42,18 +44,19 @@ DataMapper.auto_upgrade!
 
 @@contact_array = []
 
-@@crm_app_name = "My CRM"
+@@crm_app_name = "Listr"
 @@current_time = Time.now
 
 get '/' do
 
+    @contact_count = Contact.count
     erb :index
     
 end
 
 get '/contacts' do
 
-
+    @contact_count = Contact.count
     @contact_array = Contact.all
     erb :contacts
     
@@ -61,6 +64,7 @@ end
 
 get '/contacts/new' do
 
+    @contact_count = Contact.count
     erb :contact_new
     
 end
@@ -69,12 +73,14 @@ end
 
 get '/contacts/find_all' do
 
+    @contact_count = Contact.count
     erb :contact_view_one
     
 end
 
 post '/contacts/find_all' do
 
+    @contact_count = Contact.count
     @filtered_array = 
         Contact.all(:first_name.like => "%#{params[:search]}%") + # "+" is used like an OR for SQL
         Contact.all(:last_name.like => "%#{params[:search]}%") +
@@ -89,6 +95,7 @@ end
 
 get '/contacts/:id/edit' do
 
+    @contact_count = Contact.count
     @id = params[:id].to_i
 
     @contact_array = Contact.all #This is so that all the existing contacts are still showing up
@@ -112,7 +119,7 @@ post '/contacts/:id/edit' do
     @notes=params[:notes]
     @id=params[:id]
 
-    Contact.get(@id).update(first_name: @first_name, last_name: @last_name, email: @email, notes: @notes)
+    Contact.get(@id).update(first_name: @first_name, last_name: @last_name, email: @email, notes: @notes, modify_date: Time.now)
 
     redirect to('/contacts')
 
@@ -140,7 +147,8 @@ post '/contacts' do
         first_name: params[:first_name],
         last_name: params[:last_name],
         email: params[:email],
-        notes: params[:notes])
+        notes: params[:notes],
+        create_date: Time.now)
 
     redirect to('/contacts')
 end

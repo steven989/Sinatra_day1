@@ -1,7 +1,12 @@
 <div class="header">
 
-    <h1>Welcome to <%= @@crm_app_name %>!</h1>
+    <h1>Welcome to <%= @@crm_app_name %>. A cloud-based CRM App.</h1>
+
+        <% @count = @contact_count == 0 ? "no" : @contact_count.to_s %> 
+        <% @contact = @contact_count == 0 || @contact_count == 1 ? "contact" : "contacts" %> 
+     <p> You currently have <span><%= @count %></span> <%= @contact %>.</p2>
     
+
     <a href="/">
     <div class="home_button">
     <h1>Home</h1>
@@ -30,23 +35,23 @@
 
         <tr>
             <td>First Name: </td>
-            <td><input type="text" name = "first_name"></td>
+            <td><input type="text" name = "first_name" required></td>
         </tr>
 
         <tr>
         <td>Last Name:</td>
-        <td><input type="text" name = "last_name"></td>
+        <td><input type="text" name = "last_name" required></td>
 
         </tr>
 
         <tr>
         <td>Email: </td>
-        <td><input type="text" name = "email"></td>
+        <td><input type="text" name = "email" required></td>
         </tr>
 
         <tr>
-        <td>Notes: </td>
-        <td><input type="text" name = "notes"></td>
+        <td>Notes:</td>
+        <td><input type"text" name = "notes"></textarea></td>
         </tr>
     </table>
         <input type="submit" name = "submit" id="submit_button" value="Create new contact">

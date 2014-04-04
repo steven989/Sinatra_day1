@@ -1,6 +1,10 @@
 <div class="header">
 
-    <h1>Welcome to <%= @@crm_app_name %>!</h1>
+    <h1>Welcome to <%= @@crm_app_name %>. A cloud-based CRM App.</h1>
+
+        <% @count = @contact_count == 0 ? "no" : @contact_count.to_s %> 
+        <% @contact = @contact_count == 0 || @contact_count == 1 ? "contact" : "contacts" %> 
+     <p> You currently have <span><%= @count %></span> <%= @contact %>.</p2>
     
 
 </div>
@@ -12,16 +16,16 @@
 
 <div class="body">
 
-<div id="buttons">
+    <div id="actions">
 
-    <ul>
-        <a href="/contacts/new"><li id="button">Add a contact</li></a>
-        <a href="/contacts"><li id="button">View all contacts</li></a>
-        <a href="/contacts/find_all"><li id="button">Find a contact</li></a>
-        <a href="/contacts/delete_all"><li id="button">Clear all contacts</li></a>
-    </ul>
+        <ul>
+            <a href="/contacts/new"><div class="button"><li>Add a contact</li></div></a>
+            <a href="/contacts"><div class="button"><li>View all contacts</li></div></a>
+            <a href="/contacts/find_all"><div class="button"><li>Find a contact</li></div></a>
+            <a href="/contacts/delete_all"><div class="button"><li>Clear all contacts</li></div></a>
+        </ul>
 
-</div>
+    </div>
 
 </div>
 

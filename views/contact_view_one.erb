@@ -1,7 +1,12 @@
 <div class="header">
 
-    <h1>Welcome to <%= @@crm_app_name %>!</h1>
+    <h1>Welcome to <%= @@crm_app_name %>. A cloud-based CRM App.</h1>
+
+        <% @count = @contact_count == 0 ? "no" : @contact_count.to_s %> 
+        <% @contact = @contact_count == 0 || @contact_count == 1 ? "contact" : "contacts" %> 
+     <p> You currently have <span><%= @count %></span> <%= @contact %>.</p2>
     
+
     <a href="/">
     <div class="home_button">
     <h1>Home</h1>
@@ -20,7 +25,7 @@
 <div class="body">
 
 
-<div id="add_form">
+<div id="search_form">
 
 <h1>Search below:</h1>
 

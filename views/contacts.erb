@@ -1,8 +1,13 @@
 
 <div class="header">
 
-    <h1>Welcome to <%= @@crm_app_name %>!</h1>
-        
+    <h1>Welcome to <%= @@crm_app_name %>. A cloud-based CRM App.</h1>
+
+        <% @count = @contact_count == 0 ? "no" : @contact_count.to_s %> 
+        <% @contact = @contact_count == 0 || @contact_count == 1 ? "contact" : "contacts" %> 
+     <p> You currently have <span><%= @count %></span> <%= @contact %>.</p2>
+    
+ 
     <a href="/">
     <div class="home_button">
     <h1>Home</h1>
@@ -29,9 +34,13 @@
                 <% name = contact.first_name+" "+contact.last_name %>
                 <% email =contact.email %>
                 <% notes = contact.notes %>
+                <% create_date = contact.create_date %>
+                <% modify_date = contact.modify_date %>
                 <h1><%= name %></h1> <br>
                 <p><%= email %> </p> <br>
-                <p><%= notes %> </p>
+                <p class="contact_notes"><%= notes %> </p>
+                <span class="created_modified"><p>Created: <%= create_date %> Last modified: <%= modify_date%></p></span>
+
                 <label for="<%= id %>_modify">
                     <div class="modify">
                         <form action="/contacts/<%= id %>/edit" method="GET">
