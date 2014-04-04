@@ -1,6 +1,44 @@
 require 'sinatra'
-require_relative 'contact'
 require_relative 'rolodex'
+require 'data_mapper'
+
+
+DataMapper.setup(:default, "sqlite3:database.sqlite3")
+
+
+class Contact
+
+    include DataMapper::Resource
+
+    property :id, Serial
+    property :first_name, String
+    property :last_name, String
+    property :email, String
+    property :notes, String
+
+
+                              # attr_accessor :first_name, :last_name, :email, :notes, :id
+
+                              # @@counter = 0
+
+                              # def initialize(first_name,last_name,email,notes)
+
+                              #   @@counter += 1  #increment the ID by one
+                                
+                              #   @id = @@counter
+                              #   @first_name = first_name
+                              #   @last_name = last_name
+                              #   @email = email
+                              #   @notes = notes
+
+                              # end
+
+
+
+end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 
 @@contact_array = []
@@ -17,8 +55,9 @@ end
 
 get '/contacts' do
 
-    @@contact_array = []
-    @@rolodex.view_all_contacts
+
+    @contact_array = Contact.all
+    # @@rolodex.view_all_contacts
     erb :contacts
     
 end
@@ -87,7 +126,7 @@ end
 get '/contacts/:id/delete' do
 
     id = params[:id].to_i
-    @@rolodex.delete_a_contact(id)
+    Contact.get(id).destroy
     redirect to ('/contacts')
 
 end 
@@ -101,6 +140,15 @@ end
 
 post '/contacts' do
 
-    @@rolodex.add_contact(params[:first_name],params[:last_name],params[:email],params[:notes])
+    Contact.create(
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        email: params[:email],
+        notes: params[:notes])
+
     redirect to('/contacts')
 end
+
+
+
+

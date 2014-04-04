@@ -6,10 +6,10 @@ class Rolodex
 
     @rolodex = []
 
-    @rolodex << Contact.new("Steve","Long","steven989@gmail.com","He is a pretty rad guy.") #default value
-    @rolodex << Contact.new("Mike","Smith","michael.smith@universe.com","Met him a few days ago.") #default value
-    @rolodex << Contact.new("Joey","Ionian","j.ionian@college.ca","He came to me") #default value
-    @rolodex << Contact.new("Sandra","Stevenson","sandra.stevenson@web.ca","She is also awesome") #default value
+    # @rolodex << Contact.new("Steve","Long","steven989@gmail.com","He is a pretty rad guy.") #default value
+    # @rolodex << Contact.new("Mike","Smith","michael.smith@universe.com","Met him a few days ago.") #default value
+    # @rolodex << Contact.new("Joey","Ionian","j.ionian@college.ca","He came to me") #default value
+    # @rolodex << Contact.new("Sandra","Stevenson","sandra.stevenson@web.ca","She is also awesome") #default value
   end
 
 ####################################### method to add a contact

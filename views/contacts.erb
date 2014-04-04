@@ -23,7 +23,7 @@
     <div id="contacts">
     
         <h1>Here are all your contacts:</h1> 
-        <% @@contact_array.each { |contact| %>
+        <% @contact_array.each { |contact| %>
             <div class="individual_contact">
                 <% id = contact.id %>
                 <% name = contact.first_name+" "+contact.last_name %>
