@@ -1,5 +1,4 @@
 require 'sinatra'
-require_relative 'rolodex'
 require 'data_mapper'
 
 
@@ -43,7 +42,6 @@ DataMapper.auto_upgrade!
 
 @@contact_array = []
 
-@@rolodex = Rolodex.new
 @@crm_app_name = "My CRM"
 @@current_time = Time.now
 
@@ -57,7 +55,6 @@ get '/contacts' do
 
 
     @contact_array = Contact.all
-    # @@rolodex.view_all_contacts
     erb :contacts
     
 end
@@ -78,13 +75,12 @@ end
 
 post '/contacts/find_all' do
 
-    @@filtered_array = []
-    first_name = params[:first_name] == "" ? "|~@|@|@|@|@|@|@|@|@+++|xxefaw||aew|" : params[:first_name]    #The random string of text is so that when nothing is entered, the program is not matching "", which will match to anything
-    last_name = params[:last_name] == "" ? "|~@|@|@|@|@|@|@|@|@+++|xxefaw||aew|" : params[:last_name]
-    email = params[:email] == "" ? "|~@|@|@|@|@|@|@|@|@+++|xxefaw||aew|" : params[:email]
-    notes = params[:notes] == "" ? "|~@|@|@|@|@|@|@|@|@+++|xxefaw||aew|" : params[:notes]
+    @filtered_array = 
+        Contact.all(:first_name.like => "%#{params[:search]}%") + # "+" is used like an OR for SQL
+        Contact.all(:last_name.like => "%#{params[:search]}%") +
+        Contact.all(:email.like => "%#{params[:search]}%") +
+        Contact.all(:notes.like => "%#{params[:search]}%")
 
-    @@rolodex.view_all_by_attr_value(first_name,last_name,email,notes)
 
     erb :filtered_contacts
 
@@ -95,13 +91,14 @@ get '/contacts/:id/edit' do
 
     @id = params[:id].to_i
 
-    @@first_name_formdefault = ""
-    @@last_name_formdefault = ""
-    @@email_formdefault = ""
-    @@notes_formdefault = ""
+    @contact_array = Contact.all #This is so that all the existing contacts are still showing up
 
+    contact = Contact.get(@id)
 
-    @@rolodex.view_a_contact(@id)
+    @first_name_formdefault = contact.first_name
+    @last_name_formdefault = contact.last_name
+    @email_formdefault = contact.email
+    @notes_formdefault = contact.notes
 
     erb :contact_modify
     
@@ -115,8 +112,7 @@ post '/contacts/:id/edit' do
     @notes=params[:notes]
     @id=params[:id]
 
-
-    @@rolodex.modify_contact(@id.to_i,@first_name,@last_name,@email,@notes)
+    Contact.get(@id).update(first_name: @first_name, last_name: @last_name, email: @email, notes: @notes)
 
     redirect to('/contacts')
 
@@ -133,7 +129,7 @@ end
 
 get '/contacts/delete_all' do
 
-    @@rolodex.delete_all_contacts
+    Contact.all.destroy
     redirect to ('/contacts')
 
 end

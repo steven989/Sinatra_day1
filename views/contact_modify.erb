@@ -31,23 +31,23 @@
 
                 <tr>
                     <td>First Name: </td>
-                    <td><input type="text" name = "first_name" value = "<%= @@first_name_formdefault %>"></td>
+                    <td><input type="text" name = "first_name" value = "<%= @first_name_formdefault %>"></td>
                 </tr>
 
                 <tr>
                 <td>Last Name:</td>
-                <td><input type="text" name = "last_name" value = "<%= @@last_name_formdefault %>"></td>
+                <td><input type="text" name = "last_name" value = "<%= @last_name_formdefault %>"></td>
 
                 </tr>
 
                 <tr>
                 <td>Email: </td>
-                <td><input type="text" name = "email" value="<%= @@email_formdefault %>"></td>
+                <td><input type="text" name = "email" value="<%= @email_formdefault %>"></td>
                 </tr>
 
                 <tr>
                 <td>Notes: </td>
-                <td><input type="text" name = "notes" value = "<%= @@notes_formdefault %>"></td>
+                <td><input type="text" name = "notes" value = "<%= @notes_formdefault %>"></td>
                 </tr>
             </table>
                 <input type="submit" name = "submit" id="submit_button" value="Modify contact">
@@ -60,7 +60,7 @@
     <div id="contacts">
     
         <h1>Here are all your contacts:</h1> 
-        <% @@contact_array.each { |contact| %>
+        <% @contact_array.each { |contact| %>
             <div class="individual_contact">
                 <% id = contact.id %>
                 <% name = contact.first_name+" "+contact.last_name %>
